@@ -1,0 +1,18 @@
+$header-bg-color: #2a2a2a;
+$content-bg-color: #0e1010;
+
+.app {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    background-color: $header-bg-color;
+    flex-basis: 10%;
+}
+
+.content {
+    background-color: $content-bg-color;
+    flex-basis: 90%;
+}

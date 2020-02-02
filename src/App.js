@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Navigation } from './components/Navigation'
 import { routes } from './routes'
-import './App.css'
+import './App.scss'
 
 class App extends React.Component {
 
@@ -25,8 +25,12 @@ class App extends React.Component {
     return (
       <Router>
         <div className="app">
-          <Navigation />
-          <Switch>{this.renderRoutes()}</Switch>
+          <header className="menu">
+            <Navigation />
+          </header>
+          <main className="content">
+            <Switch>{this.renderRoutes()}</Switch>
+          </main>
         </div>
       </Router>
     )
