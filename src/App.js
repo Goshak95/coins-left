@@ -5,23 +5,20 @@ import { routes } from './routes'
 import './App.scss'
 
 class App extends React.Component {
-
   renderRoutes = () => {
-      return routes.map(route => {
-        
-        return ( 
-          <Route
-            key={route.path} 
-            path={route.path} 
-            exact={route.isExact}
-            component={route.component}
-          />
-        )
-      })
+    return routes.map(route => {
+      return (
+        <Route
+          key={route.path}
+          path={route.path}
+          exact={route.isExact}
+          component={route.component}
+        />
+      )
+    })
   }
 
   render() {
-    
     return (
       <Router>
         <div className="app">

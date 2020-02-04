@@ -1,0 +1,24 @@
+$icon-color: #fff;
+$bg-color: #fff;
+
+.new-spending {
+  display: flex;
+  align-items: center;
+
+  &__input {
+    border-radius: 5px;
+    background-color: #fbfbfb;
+    font-size: 18px;
+    padding: 5px 5px;
+  }
+
+  &__btn {
+    border: none;
+    background-color: transparentize($bg-color, 1);
+  }
+
+  &__icon {
+    color: $icon-color;
+    font-weight: bold;
+  }
+}
