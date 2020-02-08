@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.scss'
 
-export const SpendingDate = props => {
+export const SpendingsDate = props => {
   let date = new Date()
   return (
     <div className="date">
