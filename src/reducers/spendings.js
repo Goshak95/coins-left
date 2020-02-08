@@ -1,8 +1,16 @@
-const initialState = {}
+import { GET_SPENDINGS } from '../actions/Spendings'
 
-export function SpendingsReducer(store = initialState, action) {
+const initialState = {
+  error: null,
+  isLoaded: false,
+  spendingsList: [],
+}
+
+export function SpendingsReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_SPENDINGS:
+      return { ...state, spendingsList: action.payload, isLoaded: true }
     default:
-      return { ...store }
+      return { ...state }
   }
 }
