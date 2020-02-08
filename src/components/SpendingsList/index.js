@@ -1,18 +1,15 @@
 import React from 'react'
 import './styles.scss'
+import { SpendingsItem } from '../SpendingsItem'
 
-export const SpendingsList = props => {
+export const SpendingsList = ({ size = 'large', spendingsList = [] }) => {
   const renderList = () => {
-    const spendings = props.spendingsList
+    const spendings = spendingsList
 
     return spendings.map(item => {
-      return (
-        <div class="spendings-list__item">
-          <h1>Item!</h1>
-        </div>
-      )
+      return <SpendingsItem key={+new Date(item.date)} size={size} data={item} />
     })
   }
 
-  return <div className="spendings-list">{renderList()}</div>
+  return <div className={`spendings-list spendings-list_${size}`}>{renderList()}</div>
 }

@@ -1,16 +1,16 @@
-$item-color: #ccc;
-
 .spendings-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  padding: 15px 10px;
-  margin-right: -90px;
-  &__item {
-    flex-basis: 200px;
-    background-color: $item-color;
-    margin-bottom: 20px;
-    margin-right: 90px;
-    border-radius: 3px;
+
+  &_large {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px 10px;
+    margin-right: -90px;
+  }
+
+  &_small {
+    flex-flow: column;
+    align-items: flex-start;
   }
 }
