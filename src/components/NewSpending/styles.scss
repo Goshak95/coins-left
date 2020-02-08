@@ -1,0 +1,28 @@
+@import '../../scss/variables.scss';
+
+.new-spending {
+  display: flex;
+  align-items: center;
+
+  &__title {
+    color: $header-color;
+  }
+
+  &__btn {
+    border: none;
+    background-color: transparentize($main-color, 1);
+  }
+
+  &__icon {
+    color: $main-color;
+    font-weight: bold;
+  }
+}
+.form {
+  &__input {
+    border-radius: 5px;
+    background-color: #fbfbfb;
+    font-size: 18px;
+    padding: 5px 5px;
+  }
+}
