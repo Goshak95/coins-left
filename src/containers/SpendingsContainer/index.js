@@ -1,23 +1,25 @@
 import React from 'react'
+import './styles.scss'
 import { connect } from 'react-redux'
 import { DayCard } from '../../components/DayCard'
-import { getSpendings } from '../../actions/Spendings'
+import { getSpendings, addSpending } from '../../actions/Spendings'
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+import Loader from 'react-loader-spinner'
 
 class SpendingsContainer extends React.Component {
   componentDidMount() {
-    fetch('https://5e3ed04a64c3f60014550d95.mockapi.io/api/v1/coinsleft/spendings')
-      .then(response => response.json())
-      .then(data => this.props.getSpendings(data))
+    this.props.getSpendings()
   }
 
   render() {
-    const { error, isLoaded, spendingsList } = this.props.spendings
+    const { spendings, ...actions } = this.props
+    const { error, isLoading, spendingsList } = spendings
     if (error) {
       return <div>Ошибка: {error.message}</div>
-    } else if (!isLoaded) {
-      return <div>Загрузка...</div>
+    } else if (isLoading) {
+      return <Loader className="loader" type="ThreeDots" color="#00BFFF" height={150} width={150} />
     } else {
-      return <DayCard spendingsList={spendingsList} />
+      return <DayCard spendingsList={spendingsList} actions={actions} />
     }
   }
 }
@@ -31,6 +33,7 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
   return {
     getSpendings: spendingsList => dispatch(getSpendings(spendingsList)),
+    addSpending: spendingData => dispatch(addSpending(spendingData)),
   }
 }
 
