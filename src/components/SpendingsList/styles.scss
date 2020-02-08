@@ -3,12 +3,14 @@ $item-color: #ccc;
 .spendings-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 15px 10px;
+  margin-right: -90px;
   &__item {
     flex-basis: 200px;
     background-color: $item-color;
-    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 90px;
     border-radius: 3px;
   }
 }
