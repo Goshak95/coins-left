@@ -5,6 +5,9 @@ import {
   ADD_SPENDING_REQUEST,
   ADD_SPENDING_SUCCESS,
   ADD_SPENDING_FAILURE,
+  DELETE_SPENDING_REQUEST,
+  DELETE_SPENDING_SUCCESS,
+  DELETE_SPENDING_FAILURE,
 } from '../actions/Spendings'
 
 const initialState = {
@@ -29,7 +32,15 @@ export function SpendingsReducer(state = initialState, action) {
       newSpendings.push(action.payload)
       return { ...state, spendingsList: newSpendings, isLoading: false }
     case ADD_SPENDING_FAILURE:
-      return { ...state, error: action.payload }
+      return { ...state, error: action.payload, isLoading: false }
+
+    case DELETE_SPENDING_REQUEST:
+      return { ...state, isLoading: true }
+    case DELETE_SPENDING_SUCCESS:
+      const filteredSpendings = state.spendingsList.filter( item => action.payload.id != item.id)
+      return { ...state, spendingsList: filteredSpendings, isLoading: false }
+    case DELETE_SPENDING_FAILURE:
+      return { ...state, error: action.payload, isLoading: false }
 
     default:
       return state

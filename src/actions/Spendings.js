@@ -6,6 +6,10 @@ export const ADD_SPENDING_REQUEST = 'ADD_SPENDING_REQUEST'
 export const ADD_SPENDING_SUCCESS = 'ADD_SPENDING_SUCCESS'
 export const ADD_SPENDING_FAILURE = 'ADD_SPENDING_FAILURE'
 
+export const DELETE_SPENDING_REQUEST = 'DELETE_SPENDING_REQUEST'
+export const DELETE_SPENDING_SUCCESS = 'DELETE_SPENDING_SUCCESS'
+export const DELETE_SPENDING_FAILURE = 'DELETE_SPENDING_FAILURE'
+
 export function getSpendings(spendingsList) {
   return dispatch => {
     dispatch({
@@ -40,5 +44,24 @@ export function addSpending(spendingData) {
         })
       )
       .catch(error => dispatch({ type: ADD_SPENDING_FAILURE, payload: error.message }))
+  }
+}
+
+export function deleteSpending(id) {
+  return dispatch => {
+    dispatch({
+      type: DELETE_SPENDING_REQUEST
+    })
+    fetch(`https://5e3ed04a64c3f60014550d95.mockapi.io/api/v1/coinsleft/spendings/${id}`, {
+      method: 'DELETE',
+    })
+      .then(response => response.json())
+      .then(data =>
+        dispatch({
+          type: DELETE_SPENDING_SUCCESS,
+          payload: data,
+        })
+      )
+      .catch(error => dispatch({ type: DELETE_SPENDING_FAILURE, payload: error.message }))
   }
 }
