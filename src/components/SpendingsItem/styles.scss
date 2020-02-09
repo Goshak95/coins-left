@@ -2,33 +2,70 @@ $item-color: #ccc;
 $date-color: #333;
 $money-color: #f7fffd;
 $money-bg-color: #774b4b;
+$border-color: #0078f2;
 
 @mixin flex-j-sb {
   display: flex;
   justify-content: space-between;
 }
 
-.spending-item {
+.spending-item-wrapper {
   @include flex-j-sb;
-  background-color: $item-color;
-  border-radius: 3px;
-  padding: 5px 10px;
+  position: relative;
 
   &_large {
     flex-flow: column;
     flex-wrap: wrap;
-    width: 180px;
+    width: 200px;
     margin-bottom: 20px;
     margin-right: 90px;
     font-size: 22px;
   }
 
   &_small {
+    width: 100%;
     align-items: flex-start;
     justify-content: space-between;
     border-radius: 3px;
     margin-bottom: 10px;
     font-size: 12px;
+  }
+
+  &__controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform 0.3s;
+    z-index: 1;
+  }
+  &:hover > &__controls {
+    transform: translateX(40px);
+  }
+}
+
+.spending-controls {
+  display: flex;
+  flex-flow: column;
+
+  &__item {
+    background-color: $item-color;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 5px;
+  }
+}
+
+.spending-item {
+  background-color: $item-color;
+  border-radius: 3px;
+  position: relative;
+  padding: 5px 10px;
+  z-index: 100;
+
+  &_editable {
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    padding: 3px 2px;
   }
 
   &__general-info {

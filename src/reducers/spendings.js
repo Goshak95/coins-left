@@ -37,7 +37,7 @@ export function SpendingsReducer(state = initialState, action) {
     case DELETE_SPENDING_REQUEST:
       return { ...state, isLoading: true }
     case DELETE_SPENDING_SUCCESS:
-      const filteredSpendings = state.spendingsList.filter( item => action.payload.id != item.id)
+      const filteredSpendings = state.spendingsList.filter(item => action.payload.id !== item.id)
       return { ...state, spendingsList: filteredSpendings, isLoading: false }
     case DELETE_SPENDING_FAILURE:
       return { ...state, error: action.payload, isLoading: false }

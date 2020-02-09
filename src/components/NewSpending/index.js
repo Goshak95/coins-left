@@ -18,7 +18,6 @@ const NewSpending = ({ addSpending }) => {
       {open && (
         <Formik
           onSubmit={(data, { resetForm }) => {
-            console.log(data)
             addSpending(data)
           }}
           initialValues={{ id: uuid(), title: '', category: '', cost: 0, date: Date.now() }}

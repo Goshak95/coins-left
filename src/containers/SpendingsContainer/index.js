@@ -2,7 +2,7 @@ import React from 'react'
 import './styles.scss'
 import { connect } from 'react-redux'
 import { DayCard } from '../../components/DayCard'
-import { getSpendings, addSpending } from '../../actions/Spendings'
+import { getSpendings, addSpending, deleteSpending } from '../../actions/Spendings'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
 
@@ -34,6 +34,7 @@ const mapDispatchToProps = dispatch => {
   return {
     getSpendings: spendingsList => dispatch(getSpendings(spendingsList)),
     addSpending: spendingData => dispatch(addSpending(spendingData)),
+    deleteSpending: id => dispatch(deleteSpending(id)),
   }
 }
 
