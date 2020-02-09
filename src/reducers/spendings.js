@@ -8,6 +8,9 @@ import {
   DELETE_SPENDING_REQUEST,
   DELETE_SPENDING_SUCCESS,
   DELETE_SPENDING_FAILURE,
+  EDIT_SPENDING_REQUEST,
+  EDIT_SPENDING_SUCCESS,
+  EDIT_SPENDING_FAILURE,
 } from '../actions/Spendings'
 
 const initialState = {
@@ -41,6 +44,20 @@ export function SpendingsReducer(state = initialState, action) {
       return { ...state, spendingsList: filteredSpendings, isLoading: false }
     case DELETE_SPENDING_FAILURE:
       return { ...state, error: action.payload, isLoading: false }
+
+    case EDIT_SPENDING_REQUEST:
+      return state
+    case EDIT_SPENDING_SUCCESS:
+      const updatedSpendings = state.spendingsList.map(item => {
+        if (item.id === action.payload.id) {
+          return action.payload
+        } else {
+          return item
+        }
+      })
+      return { ...state, spendingsList: updatedSpendings }
+    case EDIT_SPENDING_FAILURE:
+      return { ...state, error: action.payload }
 
     default:
       return state
