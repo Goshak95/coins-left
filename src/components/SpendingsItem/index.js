@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './styles.scss'
 
-export const SpendingsItem = ({ data, size = 'large', deleteSpending }) => {
+export const SpendingsItem = ({ data, size = 'large', deleteSpending, editSpending }) => {
   const iconSize = {
     width: size === 'large' ? 50 : 30,
     height: size === 'large' ? 60 : 40,
@@ -11,14 +11,27 @@ export const SpendingsItem = ({ data, size = 'large', deleteSpending }) => {
     deleteSpending(id)
   }
 
-  const toggleSave = () => {
+  const toggleSave = e => {
+    let isUpdated = false
+
     const changedData = {
       id: data.id,
-      category: document.querySelector('.spending-item__category').textContent,
-      title: document.querySelector('.spending-item__title').textContent,
-      date: document.querySelector('.spending-item__date').textContent,
+      title: document.querySelector(`.spending-item__title.edit${data.id}`).textContent,
+      cost: document.querySelector(`.spending-item__cost.edit${data.id}`).textContent,
+      category: document.querySelector(`.spending-item__category.edit${data.id}`).textContent,
+      date: document.querySelector(`.spending-item__date.edit${data.id}`).textContent,
     }
-    console.log(changedData)
+
+    for (let key in changedData) {
+      if (changedData[key] !== data[key]) {
+        isUpdated = true
+        break
+      }
+    }
+
+    if (isUpdated) {
+      editSpending(changedData)
+    }
     toggleEdit(!edit)
   }
 
@@ -36,28 +49,45 @@ export const SpendingsItem = ({ data, size = 'large', deleteSpending }) => {
           <div className="spending-item__info">
             <p
               contentEditable={edit}
-              className={`spending-item__category ${edit ? 'spending-item_editable' : ''}`}
+              className={`spending-item__category ${
+                edit ? 'spending-item_editable edit' + data.id : ''
+              }`}
             >
               {data.category}
             </p>
             <p
               contentEditable={edit}
-              className={`spending-item__date ${edit ? 'spending-item_editable' : ''}`}
+              className={`spending-item__date ${
+                edit ? 'spending-item_editable edit' + data.id : ''
+              }`}
             >
               {data.date}
             </p>
           </div>
         </div>
         <div className="spending-item__title">
-          <p className={`${edit ? 'spending-item_editable' : ''}`} contentEditable={edit}>
+          <p
+            className={`spending-item__title ${
+              edit ? 'spending-item_editable edit' + data.id : ''
+            }`}
+            contentEditable={edit}
+          >
             {data.title}
           </p>
         </div>
-        <div className="spending-item__money-info">{data.cost} ₽</div>
+        <div className={`spending-item__money-info ${edit ? 'spending-item_editable' : ''}`}>
+          <span
+            contentEditable={edit}
+            className={`spending-item__cost ${edit ? 'edit' + data.id : ''}`}
+          >
+            {data.cost}
+          </span>{' '}
+          ₽
+        </div>
       </div>
       <div className="spending-item-wrapper__controls spending-controls">
         {edit ? (
-          <button className="spending-controls__item" onClick={() => toggleSave()}>
+          <button className="spending-controls__item" onClick={e => toggleSave(e)}>
             <i className="material-icons">save</i>
           </button>
         ) : (

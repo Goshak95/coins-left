@@ -70,14 +70,18 @@ export function deleteSpending(id) {
   }
 }
 
-export function editSpending(id) {
+export function editSpending(data) {
   return dispatch => {
     dispatch({
       type: EDIT_SPENDING_REQUEST,
     })
 
-    fetch(`https://5e3ed04a64c3f60014550d95.mockapi.io/api/v1/coinsleft/spendings/${id}`, {
+    fetch(`https://5e3ed04a64c3f60014550d95.mockapi.io/api/v1/coinsleft/spendings/${data.id}`, {
       method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(data),
     })
       .then(response => response.json())
       .then(data =>

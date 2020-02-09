@@ -92,6 +92,10 @@ $border-color: #0078f2;
     font-size: 0.8em;
   }
 
+  &__cost {
+    margin: 0;
+  }
+
   &__money-info {
     color: $money-color;
     background-color: $money-bg-color;

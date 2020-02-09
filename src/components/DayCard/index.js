@@ -11,7 +11,11 @@ export const DayCard = ({ spendingsList, actions }) => {
         <SpendingsDate />
         <NewSpending addSpending={actions.addSpending} />
       </div>
-      <SpendingsList spendingsList={spendingsList} deleteSpending={actions.deleteSpending}/>
+      <SpendingsList
+        spendingsList={spendingsList}
+        deleteSpending={actions.deleteSpending}
+        editSpending={actions.editSpending}
+      />
     </div>
   )
 }
