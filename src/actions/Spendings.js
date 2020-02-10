@@ -32,7 +32,6 @@ export function addSpending(spendingData) {
     dispatch({
       type: ADD_SPENDING_REQUEST,
     })
-    console.log(JSON.stringify(spendingData))
     fetch('https://5e3ed04a64c3f60014550d95.mockapi.io/api/v1/coinsleft/spendings', {
       method: 'POST',
       headers: {

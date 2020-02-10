@@ -54,7 +54,7 @@ export const SpendingsItem = ({ data, size = 'large', deleteSpending, editSpendi
                 edit ? 'spending-item_editable edit' + data.id : ''
               }`}
             >
-              {data.category}
+              {data.category_title}
             </p>
             <p
               contentEditable={edit}
