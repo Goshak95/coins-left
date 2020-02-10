@@ -15,7 +15,7 @@ import {
 
 const initialState = {
   error: null,
-  isLoading: false,
+  isLoading: true,
   spendingsList: [],
 }
 

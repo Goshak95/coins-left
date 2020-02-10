@@ -14,7 +14,7 @@ export const EDIT_SPENDING_REQUEST = 'EDIT_SPENDING_REQUEST'
 export const EDIT_SPENDING_SUCCESS = 'EDIT_SPENDING_SUCCESS'
 export const EDIT_SPENDING_FAILURE = 'EDIT_SPENDING_FAILURE'
 
-export function getSpendings(spendingsList) {
+export function getSpendings() {
   return dispatch => {
     dispatch({
       type: GET_SPENDINGS_REQUEST,

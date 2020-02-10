@@ -3,23 +3,27 @@ import './styles.scss'
 import { connect } from 'react-redux'
 import { DayCard } from '../../components/DayCard'
 import { getSpendings, addSpending, deleteSpending, editSpending } from '../../actions/Spendings'
+import { getCategories, addCategory, deleteCategory } from '../../actions/Categories'
+import { getIcons } from '../../actions/Icons'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
 
 class SpendingsContainer extends React.Component {
   componentDidMount() {
+    this.props.getIcons()
+    this.props.getCategories()
     this.props.getSpendings()
   }
 
   render() {
-    const { spendings, ...actions } = this.props
+    const { spendings, categories, icons, ...actions } = this.props
     const { error, isLoading, spendingsList } = spendings
     if (error) {
       return <div>Ошибка: {error.message}</div>
     } else if (isLoading) {
       return <Loader className="loader" type="ThreeDots" color="#00BFFF" height={150} width={150} />
     } else {
-      return <DayCard spendingsList={spendingsList} actions={actions} />
+      return <DayCard spendingsList={spendingsList} categories={categories.categoriesData} icons={icons.iconsData} actions={actions} />
     }
   }
 }
@@ -27,6 +31,8 @@ class SpendingsContainer extends React.Component {
 const mapStateToProps = store => {
   return {
     spendings: store.spendings,
+    categories: store.categories,
+    icons: store.icons
   }
 }
 
@@ -36,6 +42,10 @@ const mapDispatchToProps = dispatch => {
     addSpending: spendingData => dispatch(addSpending(spendingData)),
     deleteSpending: id => dispatch(deleteSpending(id)),
     editSpending: id => dispatch(editSpending(id)),
+    getCategories: () => dispatch(getCategories()),
+    addCategory: categoryData => dispatch(addCategory(categoryData)),
+    deleteCategory: id => dispatch(deleteCategory(id)),
+    getIcons: () => dispatch(getIcons()),
   }
 }
 

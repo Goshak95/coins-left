@@ -41,6 +41,7 @@ export const SpendingsItem = ({ data, size = 'large', deleteSpending, editSpendi
       <div className="spending-item">
         <div className="spending-item__general-info">
           <img
+            src={`/images/icons/${data.icon_filename}.png`}
             className="spending-item__icon"
             width={iconSize.width}
             height={iconSize.height}
