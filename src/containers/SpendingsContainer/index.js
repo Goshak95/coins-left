@@ -5,6 +5,7 @@ import { DayCard } from '../../components/DayCard'
 import { getSpendings, addSpending, deleteSpending, editSpending } from '../../actions/Spendings'
 import { getCategories, addCategory, deleteCategory } from '../../actions/Categories'
 import { getIcons } from '../../actions/Icons'
+import { ErrorComponent } from '../../components/ErrorComponent'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
 
@@ -19,11 +20,18 @@ class SpendingsContainer extends React.Component {
     const { spendings, categories, icons, ...actions } = this.props
     const { error, isLoading, spendingsList } = spendings
     if (error) {
-      return <div>Ошибка: {error.message}</div>
+      return <ErrorComponent message={error} />
     } else if (isLoading) {
       return <Loader className="loader" type="ThreeDots" color="#00BFFF" height={150} width={150} />
     } else {
-      return <DayCard spendingsList={spendingsList} categories={categories.categoriesData} icons={icons.iconsData} actions={actions} />
+      return (
+        <DayCard
+          spendingsList={spendingsList}
+          categories={categories.categoriesData}
+          icons={icons.iconsData}
+          actions={actions}
+        />
+      )
     }
   }
 }
@@ -32,7 +40,7 @@ const mapStateToProps = store => {
   return {
     spendings: store.spendings,
     categories: store.categories,
-    icons: store.icons
+    icons: store.icons,
   }
 }
 
