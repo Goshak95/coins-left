@@ -1,8 +1,8 @@
 import React from 'react'
 import './styles.scss'
-import { SpendingsDate } from '../SpendingsDate'
 import { NewSpending } from '../NewSpending'
 import { SpendingsList } from '../SpendingsList'
+import { DateRenderer } from '../DateRenderer'
 
 export const DayCard = ({ spendingsList, categories, icons, actions }) => {
   const mappedCategories = categories.reduce((acc, item, index) => {
@@ -14,7 +14,18 @@ export const DayCard = ({ spendingsList, categories, icons, actions }) => {
   return (
     <div className="day-card">
       <div className="day-card__header">
-        <SpendingsDate />
+        <DateRenderer>
+          {d => {
+            return (
+              <div className="day-card__date">
+                <h1>Today</h1>
+                <p>
+                  {d.dateString}, {d.weekDay}
+                </p>
+              </div>
+            )
+          }}
+        </DateRenderer>
         <NewSpending addSpending={actions.addSpending} />
       </div>
       <SpendingsList
