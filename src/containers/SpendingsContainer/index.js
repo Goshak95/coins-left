@@ -6,6 +6,7 @@ import { getSpendings, addSpending, deleteSpending, editSpending } from '../../a
 import { getCategories, addCategory, deleteCategory } from '../../actions/Categories'
 import { getIcons } from '../../actions/Icons'
 import { ErrorComponent } from '../../components/ErrorComponent'
+import { Tabs } from '../../components/Tabs'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
 
@@ -25,12 +26,19 @@ class SpendingsContainer extends React.Component {
       return <Loader className="loader" type="ThreeDots" color="#00BFFF" height={150} width={150} />
     } else {
       return (
-        <DayCard
-          spendingsList={spendingsList}
-          categories={categories.categoriesData}
-          icons={icons.iconsData}
-          actions={actions}
-        />
+        <Tabs>
+          <Tabs.Tab path="/spendings/today" title="Current spendings">
+            <DayCard
+              spendingsList={spendingsList}
+              categories={categories.categoriesData}
+              icons={icons.iconsData}
+              actions={actions}
+            />
+          </Tabs.Tab>
+          <Tabs.Tab path="/spendings/categories" title="Categories">
+            <h1>Categories!</h1>
+          </Tabs.Tab>
+        </Tabs>
       )
     }
   }
