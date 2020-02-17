@@ -11,7 +11,7 @@ import {
   EDIT_SPENDING_REQUEST,
   EDIT_SPENDING_SUCCESS,
   EDIT_SPENDING_FAILURE,
-} from '../actions/Spendings'
+} from '../actions/Spendings/types'
 
 export const initialState = {
   error: null,

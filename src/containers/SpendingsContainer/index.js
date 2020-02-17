@@ -2,7 +2,12 @@ import React from 'react'
 import './styles.scss'
 import { connect } from 'react-redux'
 import { DayCard } from '../../components/DayCard'
-import { getSpendings, addSpending, deleteSpending, editSpending } from '../../actions/Spendings'
+import {
+  getSpendings,
+  addSpending,
+  deleteSpending,
+  editSpending,
+} from '../../actions/Spendings/Spendings'
 import { getCategories, addCategory, deleteCategory } from '../../actions/Categories'
 import { getIcons } from '../../actions/Icons'
 import { ErrorComponent } from '../../components/ErrorComponent'

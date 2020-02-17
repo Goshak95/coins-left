@@ -12,7 +12,7 @@ import {
   EDIT_SPENDING_REQUEST,
   EDIT_SPENDING_SUCCESS,
   EDIT_SPENDING_FAILURE,
-} from '../actions/Spendings'
+} from '../actions/Spendings/types'
 
 describe('Spendings reducer', () => {
   it('Should return the initial state', () => {
