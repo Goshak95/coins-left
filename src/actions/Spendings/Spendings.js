@@ -7,7 +7,7 @@ export function getSpendings() {
       type: t.GET_SPENDINGS_REQUEST,
     })
 
-    fetch(`${API_ROOT}/spendings`)
+    return fetch(`${API_ROOT}/spendings`)
       .then(response => response.json())
       .then(data => dispatch({ type: t.GET_SPENDINGS_SUCCESS, payload: data }))
       .catch(error => dispatch({ type: t.GET_SPENDINGS_FAILURE, payload: error.message }))
@@ -19,7 +19,7 @@ export function addSpending(spendingData) {
     dispatch({
       type: t.ADD_SPENDING_REQUEST,
     })
-    fetch(`${API_ROOT}/spendings`, {
+    return fetch(`${API_ROOT}/spendings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -42,7 +42,7 @@ export function deleteSpending(id) {
     dispatch({
       type: t.DELETE_SPENDING_REQUEST,
     })
-    fetch(`${API_ROOT}/spendings/${id}`, {
+    return fetch(`${API_ROOT}/spendings/${id}`, {
       method: 'DELETE',
     })
       .then(response => response.json())
@@ -62,7 +62,7 @@ export function editSpending(data) {
       type: t.EDIT_SPENDING_REQUEST,
     })
 
-    fetch(`${API_ROOT}/spendings/${data.id}`, {
+    return fetch(`${API_ROOT}/spendings/${data.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
