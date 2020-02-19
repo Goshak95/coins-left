@@ -14,16 +14,18 @@ export const SpendingsList = ({
 
     return spendings.map(item => {
       const itemCategory = categoriesList.find(categoryItem => categoryItem.id === item.category)
-      const extendedItem = Object.assign({}, item)
-      extendedItem.category_title = itemCategory ? itemCategory.title : 'Uncategorized'
-      extendedItem.icon_filename = itemCategory
+      const category_title = itemCategory ? itemCategory.title : 'Uncategorized'
+      const icon_filename = itemCategory
         ? itemCategory.icon_filename
         : 'label_tag_shopping_price_3668848'
       return (
         <SpendingsItem
           key={item.id}
           size={size}
-          data={extendedItem}
+          data={item}
+          categoriesList={categoriesList}
+          category_title={category_title}
+          icon_filename={icon_filename}
           deleteSpending={deleteSpending}
           editSpending={editSpending}
         />
