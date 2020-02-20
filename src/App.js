@@ -4,17 +4,14 @@ import { Navigation } from './components/Navigation'
 import { routes } from './routes'
 import './App.scss'
 import { NotFound } from './components/NotFound'
+import { Authorization } from './hoc/authotization'
 
 class App extends React.Component {
   renderRoutes = () => {
     return routes.map(route => {
+      const component = route.isPrivate ? Authorization(route.component) : route.component
       return (
-        <Route
-          key={route.path}
-          path={route.path}
-          exact={route.isExact}
-          component={route.component}
-        />
+        <Route key={route.path} path={route.path} exact={route.isExact} component={component} />
       )
     })
   }
