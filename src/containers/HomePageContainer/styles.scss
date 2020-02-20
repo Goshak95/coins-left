@@ -1,0 +1,11 @@
+@import '../../scss/variables.scss';
+
+.home {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  h1,
+  a {
+    color: $header-color;
+  }
+}
