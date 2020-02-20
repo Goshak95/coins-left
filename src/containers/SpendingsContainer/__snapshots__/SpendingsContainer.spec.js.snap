@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spendings container Spendings container Tabs render Renders properly 1`] = `
+<Tabs>
+  <Tab
+    path="/spendings/today"
+    title="Current spendings"
+  >
+    <DayCard
+      actions={
+        Object {
+          "addCategory": [Function],
+          "addSpending": [Function],
+          "deleteCategory": [Function],
+          "deleteSpending": [Function],
+          "editSpending": [Function],
+          "getCategories": [Function],
+          "getIcons": [Function],
+          "getSpendings": [Function],
+        }
+      }
+      categories={Array []}
+      icons={Array []}
+      spendingsList={
+        Array [
+          Object {
+            "id": 1,
+            "name": "some",
+          },
+          Object {
+            "id": 2,
+            "name": "lists",
+          },
+        ]
+      }
+    />
+  </Tab>
+  <Tab
+    path="/spendings/categories"
+    title="Categories"
+  >
+    <h1>
+      Categories!
+    </h1>
+  </Tab>
+</Tabs>
+`;
+
+exports[`Spendings container Spendings container initial render renders properly 1`] = `""`;
+
+exports[`Spendings container Spendings container is loading Renders properly 1`] = `
+<Loader
+  className="loader"
+  color="#00BFFF"
+  height={150}
+  style={Object {}}
+  timeout={0}
+  type="ThreeDots"
+  visible={true}
+  width={150}
+/>
+`;
+
+exports[`Spendings container Spendings container on error Renders properly 1`] = `
+<ErrorComponent
+  message="Some error message"
+/>
+`;

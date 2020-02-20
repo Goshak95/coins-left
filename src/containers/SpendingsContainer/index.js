@@ -15,7 +15,7 @@ import { Tabs } from '../../components/Tabs'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
 
-class SpendingsContainer extends React.Component {
+export class SpendingsContainer extends React.Component {
   componentDidMount() {
     this.props.getIcons()
     this.props.getCategories()
@@ -29,7 +29,7 @@ class SpendingsContainer extends React.Component {
       return <ErrorComponent message={error} />
     } else if (isLoading) {
       return <Loader className="loader" type="ThreeDots" color="#00BFFF" height={150} width={150} />
-    } else {
+    } else if (spendingsList && spendingsList.length) {
       return (
         <Tabs>
           <Tabs.Tab path="/spendings/today" title="Current spendings">
@@ -45,6 +45,8 @@ class SpendingsContainer extends React.Component {
           </Tabs.Tab>
         </Tabs>
       )
+    } else {
+      return null
     }
   }
 }
