@@ -97,7 +97,7 @@ export class SpendingsItem extends React.Component {
             <p
               data-fieldname="title"
               onInput={e => this.inputHandler(e)}
-              className={`spending-item__title ${edit ? 'spending-item_editable edit' : ''}`}
+              className={`${edit ? 'spending-item_editable edit' : ''}`}
               contentEditable={edit}
             >
               {data.title}

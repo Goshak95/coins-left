@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpendingsList renders properly 1`] = `
+<div
+  className="spendings-list spendings-list_large"
+>
+  <SpendingsItem
+    categoriesList={
+      Array [
+        Object {
+          "icon_filename": "label_tag_shopping_price_3668848",
+          "icon_id": "1",
+          "id": "1",
+          "title": "Uncategorized",
+        },
+        Object {
+          "icon_filename": "shopping_shop_store_bag_3668838",
+          "icon_id": "4",
+          "id": "2",
+          "title": "Shop",
+        },
+        Object {
+          "icon_filename": "label_tag_shopping_price_3668848",
+          "icon_id": "2",
+          "id": "3",
+          "title": "Entertainment",
+        },
+        Object {
+          "icon_filename": "clothes_tshirt_fashion_outfit_3668861",
+          "icon_id": "3",
+          "id": "4",
+          "title": "Clothes",
+        },
+        Object {
+          "icon_filename": "healthcare_medicine_expense_ambulance_3668853",
+          "icon_id": "6",
+          "id": "5",
+          "title": "Pharmacy",
+        },
+        Object {
+          "icon_filename": "house_home_flat_facilities_3668851",
+          "icon_id": "7",
+          "id": "6",
+          "title": "Home",
+        },
+      ]
+    }
+    category_title="Entertainment"
+    data={
+      Object {
+        "category": "3",
+        "cost": "150",
+        "date": "2019-11-10T16:38:00",
+        "id": "5",
+        "title": "Music subscription",
+      }
+    }
+    icon_filename="label_tag_shopping_price_3668848"
+    key="5"
+    size="large"
+  />
+  <SpendingsItem
+    categoriesList={
+      Array [
+        Object {
+          "icon_filename": "label_tag_shopping_price_3668848",
+          "icon_id": "1",
+          "id": "1",
+          "title": "Uncategorized",
+        },
+        Object {
+          "icon_filename": "shopping_shop_store_bag_3668838",
+          "icon_id": "4",
+          "id": "2",
+          "title": "Shop",
+        },
+        Object {
+          "icon_filename": "label_tag_shopping_price_3668848",
+          "icon_id": "2",
+          "id": "3",
+          "title": "Entertainment",
+        },
+        Object {
+          "icon_filename": "clothes_tshirt_fashion_outfit_3668861",
+          "icon_id": "3",
+          "id": "4",
+          "title": "Clothes",
+        },
+        Object {
+          "icon_filename": "healthcare_medicine_expense_ambulance_3668853",
+          "icon_id": "6",
+          "id": "5",
+          "title": "Pharmacy",
+        },
+        Object {
+          "icon_filename": "house_home_flat_facilities_3668851",
+          "icon_id": "7",
+          "id": "6",
+          "title": "Home",
+        },
+      ]
+    }
+    category_title="Clothes"
+    data={
+      Object {
+        "category": "4",
+        "cost": "2000",
+        "date": 1581240870143,
+        "id": "14",
+        "title": "Clothes",
+      }
+    }
+    icon_filename="clothes_tshirt_fashion_outfit_3668861"
+    key="14"
+    size="large"
+  />
+  <SpendingsItem
+    categoriesList={
+      Array [
+        Object {
+          "icon_filename": "label_tag_shopping_price_3668848",
+          "icon_id": "1",
+          "id": "1",
+          "title": "Uncategorized",
+        },
+        Object {
+          "icon_filename": "shopping_shop_store_bag_3668838",
+          "icon_id": "4",
+          "id": "2",
+          "title": "Shop",
+        },
+        Object {
+          "icon_filename": "label_tag_shopping_price_3668848",
+          "icon_id": "2",
+          "id": "3",
+          "title": "Entertainment",
+        },
+        Object {
+          "icon_filename": "clothes_tshirt_fashion_outfit_3668861",
+          "icon_id": "3",
+          "id": "4",
+          "title": "Clothes",
+        },
+        Object {
+          "icon_filename": "healthcare_medicine_expense_ambulance_3668853",
+          "icon_id": "6",
+          "id": "5",
+          "title": "Pharmacy",
+        },
+        Object {
+          "icon_filename": "house_home_flat_facilities_3668851",
+          "icon_id": "7",
+          "id": "6",
+          "title": "Home",
+        },
+      ]
+    }
+    category_title="Shop"
+    data={
+      Object {
+        "category": "2",
+        "cost": "60",
+        "date": 1582145701610,
+        "id": "15",
+        "title": "Cola",
+      }
+    }
+    icon_filename="shopping_shop_store_bag_3668838"
+    key="15"
+    size="large"
+  />
+</div>
+`;
